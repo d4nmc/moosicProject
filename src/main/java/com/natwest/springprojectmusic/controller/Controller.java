@@ -35,23 +35,23 @@ public class Controller {
 	
 	@PostMapping("/create")
 			public ResponseEntity<Music> create(@RequestBody Music ms){
-			return new ResponseEntity<Music>( body, HttpStatus.CREATED);
+			return new ResponseEntity<Music>(this.service.create(ms), HttpStatus.CREATED);
 	
 	}
 	
 	@GetMapping("/read")
 	public ResponseEntity<List<Music>> read() {
 		
-		return new ResponseEntity<List<Music>>( body, HttpStatus.OK);
+		return new ResponseEntity<List<Music>>(this.service.read(), HttpStatus.OK);
 	}
 	
 	@PutMapping("/replace/{id")
 	public ResponseEntity<Music> update(@PathVariable Long id, @RequestBody Music ms) {
-		return new ResponseEntity<Music>( body, HttpStatus.ACCEPTED);
+		return new ResponseEntity<Music>(this.service.update(id, ms), HttpStatus.ACCEPTED);
 	}
 	
 	@DeleteMapping("/delete/{id")
-	public ResponseEntity<Music> delete(@PathVariable Long id){
-		return new ResponseEntity<Music>( body, HttpStatus.NO_CONTENT);
+	public ResponseEntity<Boolean> delete(@PathVariable Long id){
+		return new ResponseEntity<Boolean>(this.service.delete(id), HttpStatus.NO_CONTENT);
 }
 }
