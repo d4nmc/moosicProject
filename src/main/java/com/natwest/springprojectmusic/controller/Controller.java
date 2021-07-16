@@ -2,6 +2,7 @@ package com.natwest.springprojectmusic.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,11 +15,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.natwest.springprojectmusic.music.Music;
+import com.natwest.springprojectmusic.service.MusicService;
 
 @RestController
 @RequestMapping("/music")
 public class Controller {
 
+	private MusicService service;
+	
+	@Autowired
+	public Controller(MusicService service) {
+		this.service = service;
+	}
+	
 	@GetMapping("/test")
 	public String test() {
 		return "Back to testing on Postman";
