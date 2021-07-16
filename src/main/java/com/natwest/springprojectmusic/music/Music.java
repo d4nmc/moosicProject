@@ -16,16 +16,18 @@ public class Music {
 	private Long id;
 	private String songName;
 	private String artistName;
-	private int yearReleased;
+	private String yearReleased;
 	private String songGenre;
 	private double songLength;
 	private boolean gotBass;
 	
 	public Music()	{}
 	
-	public Music(String songName, String artistName, int yearReleased, String songGenre, double songLength,
+	public Music(String songName, String artistName, String yearReleased, String songGenre, double songLength,
 			boolean gotBass) {
 		super();
+		
+		this.id = id;
 		this.songName = songName;
 		this.artistName = artistName;
 		this.yearReleased = yearReleased;
@@ -50,11 +52,11 @@ public class Music {
 		this.artistName = artistName;
 	}
 
-	public int getYearReleased() {
+	public String getYearReleased() {
 		return yearReleased;
 	}
 
-	public void setYearReleased(int yearReleased) {
+	public void setYearReleased(String yearReleased) {
 		this.yearReleased = yearReleased;
 	}
 
