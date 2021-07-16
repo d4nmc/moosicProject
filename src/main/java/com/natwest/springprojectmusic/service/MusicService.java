@@ -36,4 +36,9 @@ public class MusicService {
 		Music updated = this.repo.save(existing);
 		return updated;
 	}
+	
+	public boolean delete(Long id) {
+		this.repo.deleteById(id);
+		return this.repo.existsById(id);
+	}
 }
