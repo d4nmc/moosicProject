@@ -24,9 +24,16 @@ public class MusicService {
 		return this.repo.findAll();
 	}
 	
-	public Music update(Long id, Music newMs) {
+	public Music update(Long id, Music newMs){
 		Music existing = this.repo.getById(id);
+		existing.setSongName(newMs.getSongGenre());
 		existing.setArtistName(newMs.getArtistName());
+		existing.setYearReleased(newMs.getYearReleased());
+		existing.setSongGenre(newMs.getSongGenre());
+		existing.setSongLength(newMs.getSongLength());
+		existing.setGotBass(newMs.isGotBass());
 		
+		Music updated = this.repo.save(existing);
+		return updated;
 	}
 }
